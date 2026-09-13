@@ -27,8 +27,8 @@ export const profile: Profile = {
   name: 'Muhammad Rizky Ferdiansyah',
   role: 'Software Engineer',
   bio: 'Saya adalah seorang fresh graduate dari Universitas Krisnadwipayana. Saat ini saya sedang belajar menjadi software engineer, dengan minat di bidang front-end dan back-end development.',
-  // Taruh file foto di folder `public/`, lalu hapus `//` dan sesuaikan nama filenya.
-  // photo: '/foto-profil.jpg',
+  // File foto ada di folder `public/`. Hapus baris ini untuk kembali ke inisial.
+  photo: '/foto-profil.jpeg',
   email: 'bulskydong@gmail.com',
   github: 'https://github.com/rizkyfrdiansyah',
   // linkedin: 'https://www.linkedin.com/in/username', // hapus `//` di awal baris kalau sudah punya
