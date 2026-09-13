@@ -16,6 +16,7 @@ export type Profile = {
   name: string
   role: string
   bio: string
+  photo?: string // opsional: kalau kosong, yang tampil adalah inisial nama
   email: string
   github: string
   linkedin?: string // opsional: kalau dihapus, tombol LinkedIn tidak ditampilkan
@@ -26,6 +27,8 @@ export const profile: Profile = {
   name: 'Muhammad Rizky Ferdiansyah',
   role: 'Software Engineer',
   bio: 'Saya adalah seorang fresh graduate dari Universitas Krisnadwipayana. Saat ini saya sedang belajar menjadi software engineer, dengan minat di bidang front-end dan back-end development.',
+  // Taruh file foto di folder `public/`, lalu hapus `//` dan sesuaikan nama filenya.
+  // photo: '/foto-profil.jpg',
   email: 'bulskydong@gmail.com',
   github: 'https://github.com/rizkyfrdiansyah',
   // linkedin: 'https://www.linkedin.com/in/username', // hapus `//` di awal baris kalau sudah punya
