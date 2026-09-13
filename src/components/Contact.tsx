@@ -12,9 +12,12 @@ function Contact() {
         <a href={profile.github} target="_blank" rel="noreferrer">
           GitHub
         </a>
-        <a href={profile.linkedin} target="_blank" rel="noreferrer">
-          LinkedIn
-        </a>
+        {/* Tombol LinkedIn hanya muncul kalau linkedin diisi di profile.ts */}
+        {profile.linkedin && (
+          <a href={profile.linkedin} target="_blank" rel="noreferrer">
+            LinkedIn
+          </a>
+        )}
       </div>
     </section>
   )

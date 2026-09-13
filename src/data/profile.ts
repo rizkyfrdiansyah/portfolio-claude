@@ -18,33 +18,22 @@ export type Profile = {
   bio: string
   email: string
   github: string
-  linkedin: string
+  linkedin?: string // opsional: kalau dihapus, tombol LinkedIn tidak ditampilkan
   projects: Project[] // `Project[]` = array (daftar) berisi Project
 }
 
 export const profile: Profile = {
-  name: 'Nama Kamu',
+  name: 'Muhammad Rizky Ferdiansyah',
   role: 'Software Engineer',
-  bio: 'Tulis perkenalan singkat di sini: siapa kamu, apa yang sedang kamu pelajari, dan jenis proyek yang kamu sukai.',
-  email: 'email@contoh.com',
-  github: 'https://github.com/username',
-  linkedin: 'https://www.linkedin.com/in/username',
+  bio: 'Saya adalah seorang fresh graduate dari Universitas Krisnadwipayana. Saat ini saya sedang belajar menjadi software engineer, dengan minat di bidang front-end dan back-end development.',
+  email: 'bulskydong@gmail.com',
+  github: 'https://github.com/rizkyfrdiansyah',
+  // linkedin: 'https://www.linkedin.com/in/username', // hapus `//` di awal baris kalau sudah punya
   projects: [
     {
-      title: 'Portfolio Pribadi',
-      description: 'Website ini! Dibuat dengan React, TypeScript, dan Vite.',
-      tech: ['React', 'TypeScript', 'Vite'],
-    },
-    {
-      title: 'Proyek Kedua',
-      description: 'Jelaskan masalah apa yang diselesaikan proyek ini.',
-      tech: ['JavaScript', 'CSS'],
-      link: 'https://github.com/username/proyek-kedua',
-    },
-    {
-      title: 'Proyek Ketiga',
-      description: 'Tambah atau hapus proyek dengan mengubah daftar ini.',
-      tech: ['Node.js'],
+      title: 'Portofolio Diri',
+      description: 'Tentang penjelasan diri sendiri.',
+      tech: ['React', 'Node.js'],
     },
   ],
 }
