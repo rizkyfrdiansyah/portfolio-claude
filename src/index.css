@@ -1,65 +1,42 @@
+/* =============================================================
+   Warna disimpan sebagai "variabel CSS" (--nama) supaya mudah diganti.
+   Ubah --accent untuk mengganti warna utama website.
+   ============================================================= */
 :root {
-  --text: #6b6375;
-  --text-h: #08060d;
-  --bg: #fff;
-  --border: #e5e4e7;
-  --code-bg: #f4f3ec;
-  --accent: #aa3bff;
-  --accent-bg: rgba(170, 59, 255, 0.1);
-  --accent-border: rgba(170, 59, 255, 0.5);
-  --social-bg: rgba(244, 243, 236, 0.5);
-  --shadow:
-    rgba(0, 0, 0, 0.1) 0 10px 15px -3px, rgba(0, 0, 0, 0.05) 0 4px 6px -2px;
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --text: #4b5563;
+  --heading: #111827;
+  --border: #e5e7eb;
+  --accent: #4f46e5;
+  --accent-soft: rgba(79, 70, 229, 0.1);
 
-  --sans: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --heading: system-ui, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, Consolas, monospace;
-
-  font: 18px/145% var(--sans);
-  letter-spacing: 0.18px;
-  color-scheme: light dark;
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  line-height: 1.6;
   color: var(--text);
   background: var(--bg);
-  font-synthesis: none;
-  text-rendering: optimizeLegibility;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  @media (max-width: 1024px) {
-    font-size: 16px;
-  }
+  color-scheme: light dark;
 }
 
+/* Mode gelap otomatis mengikuti pengaturan sistem pengguna. */
 @media (prefers-color-scheme: dark) {
   :root {
+    --bg: #111318;
+    --surface: #1a1d24;
     --text: #9ca3af;
-    --text-h: #f3f4f6;
-    --bg: #16171d;
-    --border: #2e303a;
-    --code-bg: #1f2028;
-    --accent: #c084fc;
-    --accent-bg: rgba(192, 132, 252, 0.15);
-    --accent-border: rgba(192, 132, 252, 0.5);
-    --social-bg: rgba(47, 48, 58, 0.5);
-    --shadow:
-      rgba(0, 0, 0, 0.4) 0 10px 15px -3px, rgba(0, 0, 0, 0.25) 0 4px 6px -2px;
-  }
-
-  #social .button-icon {
-    filter: invert(1) brightness(2);
+    --heading: #f3f4f6;
+    --border: #2d313a;
+    --accent: #818cf8;
+    --accent-soft: rgba(129, 140, 248, 0.15);
   }
 }
 
-#root {
-  width: 1126px;
-  max-width: 100%;
-  margin: 0 auto;
-  text-align: center;
-  border-inline: 1px solid var(--border);
-  min-height: 100svh;
-  display: flex;
-  flex-direction: column;
+* {
   box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth; /* gulir halus saat link navigasi diklik */
 }
 
 body {
@@ -67,45 +44,172 @@ body {
 }
 
 h1,
-h2 {
-  font-family: var(--heading);
-  font-weight: 500;
-  color: var(--text-h);
+h2,
+h3 {
+  color: var(--heading);
+  line-height: 1.2;
 }
 
-h1 {
-  font-size: 56px;
-  letter-spacing: -1.68px;
-  margin: 32px 0;
-  @media (max-width: 1024px) {
-    font-size: 36px;
-    margin: 20px 0;
-  }
+a {
+  color: var(--accent);
 }
-h2 {
-  font-size: 24px;
-  line-height: 118%;
-  letter-spacing: -0.24px;
-  margin: 0 0 8px;
-  @media (max-width: 1024px) {
-    font-size: 20px;
-  }
+
+/* ---------- Header ---------- */
+.header {
+  position: sticky; /* header tetap terlihat saat halaman digulir */
+  top: 0;
+  z-index: 10;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem 1.5rem;
+  padding: 1rem clamp(1rem, 5vw, 3rem);
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
 }
-p {
+
+.logo {
+  font-weight: 700;
+  color: var(--heading);
+  text-decoration: none;
+}
+
+.header nav {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.header nav a {
+  color: var(--text);
+  text-decoration: none;
+}
+
+.header nav a:hover {
+  color: var(--accent);
+}
+
+/* ---------- Section ---------- */
+main {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 0 clamp(1rem, 5vw, 3rem);
+}
+
+.section {
+  padding: 4rem 0;
+  scroll-margin-top: 4rem; /* supaya judul tidak tertutup header */
+}
+
+.section + .section {
+  border-top: 1px solid var(--border);
+}
+
+.section h2 {
+  font-size: 1.75rem;
+  margin: 0 0 1.5rem;
+}
+
+/* ---------- About ---------- */
+.eyebrow {
+  margin: 0;
+  color: var(--accent);
+  font-weight: 600;
+}
+
+#about h1 {
+  font-size: clamp(2.25rem, 7vw, 3.5rem); /* ukuran menyesuaikan lebar layar */
+  margin: 0.25rem 0;
+}
+
+.role {
+  margin: 0 0 1rem;
+  font-size: 1.25rem;
+  color: var(--heading);
+}
+
+.bio {
+  max-width: 60ch;
   margin: 0;
 }
 
-code,
-.counter {
-  font-family: var(--mono);
-  display: inline-flex;
-  border-radius: 4px;
-  color: var(--text-h);
+/* ---------- Projects ---------- */
+.grid {
+  display: grid;
+  /* kartu otomatis 1, 2, atau 3 kolom tergantung lebar layar */
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
 }
 
-code {
-  font-size: 15px;
-  line-height: 135%;
-  padding: 4px 8px;
-  background: var(--code-bg);
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.card h3,
+.card p {
+  margin: 0;
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: 0.15rem 0.6rem;
+  font-size: 0.8rem;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border-radius: 999px;
+}
+
+.card a {
+  margin-top: auto;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+/* ---------- Contact ---------- */
+.links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.5rem;
+}
+
+.links a {
+  padding: 0.6rem 1.25rem;
+  font-weight: 600;
+  text-decoration: none;
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+}
+
+.links a:hover {
+  color: var(--surface);
+  background: var(--accent);
+}
+
+/* ---------- Footer ---------- */
+.footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--border);
 }

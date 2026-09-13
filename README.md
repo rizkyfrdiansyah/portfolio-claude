@@ -1,32 +1,57 @@
-# React + TypeScript + Vite
+# Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+Website portfolio pribadi yang dibuat dengan **React**, **TypeScript**, dan **Vite**.
 
-Currently, two official plugins are available:
+## Menjalankan di komputer
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Perlu [Node.js](https://nodejs.org) versi 20 atau lebih baru.
 
-## React Compiler
-
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
-
-## Expanding the Oxlint configuration
-
-If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
-
-```json
-{
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
-  "options": {
-    "typeAware": true
-  },
-  "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
-  }
-}
+```bash
+npm install     # sekali saja: memasang dependencies
+npm run dev     # jalankan server development → buka http://localhost:5173
 ```
 
-See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+Saat `npm run dev` berjalan, setiap perubahan file langsung terlihat di browser tanpa perlu refresh.
+
+## Mengubah isi portfolio
+
+Semua isi (nama, bio, link, dan daftar proyek) ada di satu file:
+
+```
+src/data/profile.ts
+```
+
+Ubah nilainya, simpan, dan website akan langsung ikut berubah. Untuk menambah proyek, salin satu blok `{ ... }` di dalam `projects` lalu ubah isinya.
+
+Warna website bisa diganti lewat variabel `--accent` di `src/index.css`.
+
+## Struktur folder
+
+```
+index.html              halaman HTML utama; React "ditempel" di <div id="root">
+src/
+  main.tsx              titik awal: memasang komponen App ke halaman
+  App.tsx               menyusun semua bagian halaman
+  components/
+    Header.tsx          nama + menu navigasi
+    About.tsx           perkenalan
+    Projects.tsx        daftar proyek
+    ProjectCard.tsx     satu kartu proyek
+    Contact.tsx         link kontak
+    Footer.tsx          bagian paling bawah
+  data/profile.ts       ISI portfolio kamu
+  index.css             semua styling
+public/                 file statis (misal favicon)
+```
+
+## Perintah lain
+
+| Perintah          | Fungsi                                                    |
+| ----------------- | --------------------------------------------------------- |
+| `npm run build`   | Cek error TypeScript lalu buat versi siap-online di `dist/` |
+| `npm run preview` | Menjalankan hasil build untuk dicek sebelum di-deploy     |
+| `npm run lint`    | Mencari potensi kesalahan di kode                         |
+
+## Deploy (online-kan gratis)
+
+Jalankan `npm run build`, lalu upload folder `dist/` ke layanan seperti Netlify, Vercel, atau GitHub Pages.
