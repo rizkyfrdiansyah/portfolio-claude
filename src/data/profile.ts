@@ -32,8 +32,9 @@ export const profile: Profile = {
   projects: [
     {
       title: 'Portofolio Diri',
-      description: 'Tentang penjelasan diri sendiri.',
-      tech: ['React', 'Node.js'],
+      description:
+        'Website portfolio pribadi yang responsif, mendukung mode gelap, dan isinya mudah diperbarui lewat satu file data.',
+      tech: ['React', 'TypeScript', 'Vite'],
     },
   ],
 }
